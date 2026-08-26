@@ -2,11 +2,13 @@ const { Telegraf } = require('telegraf');
 const OpenAI = require('openai');
 
 // Вставь сюда свой токен от BotFather вместо заглушки внутри кавычек
-const bot = new Telegraf('ЗДЕСЬ_ТВОЙ_ТОКЕН_БОТА');
+const bot = new Telegraf(process.env.BOT_TOKEN
+);
 
 // Вставь сюда свой ключ OpenAI вместо заглушки внутри кавычек
 const openai = new OpenAI({
-  apiKey: 'sk-proj-ТВОЙ_КЛЮЧ_OPENAI',
+  apiKey: process.env.OPENAI_API_KEY
+,
 });
 
 bot.start((ctx) => {
