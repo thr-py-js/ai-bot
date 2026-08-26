@@ -1,4 +1,4 @@
-const { Telegraf } = require('telegraf');
+const http = require('http');
 const OpenAI = require('openai');
 
 // Вставь сюда свой токен от BotFather вместо заглушки внутри кавычек
@@ -40,6 +40,7 @@ bot.on('text', async (ctx) => {
 
 bot.launch();
 console.log('Бот успешно запущен!');
-
-process.once('SIGINT', () => bot.stop('SIGINT'));
-process.once('SIGTERM', () => bot.stop('SIGTERM'));
+http.createServer((req, res) => {
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
+  res.end('Bot is running!');
+}).listen(process.env.PORT || 3000);
