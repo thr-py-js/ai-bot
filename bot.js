@@ -1,4 +1,4 @@
-const http = require('http');
+const { Telegraf } = require('telegraf');
 const OpenAI = require('openai');
 
 // Вставь сюда свой токен от BotFather вместо заглушки внутри кавычек
